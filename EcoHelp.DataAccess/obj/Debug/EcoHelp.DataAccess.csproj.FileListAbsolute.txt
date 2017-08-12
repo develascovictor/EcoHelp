@@ -1,0 +1,12 @@
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\bin\Debug\EcoHelp.DataAccess.dll
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\bin\Debug\EcoHelp.DataAccess.pdb
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\obj\Debug\EcoHelp.DataAccess.csprojResolveAssemblyReference.cache
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\obj\Debug\EcoHelp.DataAccess.dll
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\obj\Debug\EcoHelp.DataAccess.pdb
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\bin\Debug\EcoHelp.DataAccess.dll.config
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\bin\Debug\EcoHelp.Utilities.dll
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\bin\Debug\EntityFramework.dll
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\bin\Debug\EcoHelp.Utilities.pdb
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\bin\Debug\EntityFramework.xml
+C:\GitHub\EcoHelp\EcoHelp.DataAccess\bin\Debug\EntityFramework.SqlServer.xml

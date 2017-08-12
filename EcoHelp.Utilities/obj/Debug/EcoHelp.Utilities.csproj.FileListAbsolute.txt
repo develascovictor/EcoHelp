@@ -1,0 +1,12 @@
+C:\GitHub\EcoHelp\EcoHelp.Utilities\bin\Debug\EcoHelp.Utilities.dll
+C:\GitHub\EcoHelp\EcoHelp.Utilities\bin\Debug\EcoHelp.Utilities.pdb
+C:\GitHub\EcoHelp\EcoHelp.Utilities\obj\Debug\EcoHelp.Utilities.csprojResolveAssemblyReference.cache
+C:\GitHub\EcoHelp\EcoHelp.Utilities\obj\Debug\EcoHelp.Utilities.dll
+C:\GitHub\EcoHelp\EcoHelp.Utilities\obj\Debug\EcoHelp.Utilities.pdb
+C:\GitHub\EcoHelp\EcoHelp.Utilities\bin\Debug\EcoHelp.Utilities.dll.config
+C:\GitHub\EcoHelp\EcoHelp.Utilities\bin\Debug\EntityFramework.dll
+C:\GitHub\EcoHelp\EcoHelp.Utilities\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\EcoHelp\EcoHelp.Utilities\bin\Debug\Newtonsoft.Json.dll
+C:\GitHub\EcoHelp\EcoHelp.Utilities\bin\Debug\EntityFramework.xml
+C:\GitHub\EcoHelp\EcoHelp.Utilities\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitHub\EcoHelp\EcoHelp.Utilities\bin\Debug\Newtonsoft.Json.xml

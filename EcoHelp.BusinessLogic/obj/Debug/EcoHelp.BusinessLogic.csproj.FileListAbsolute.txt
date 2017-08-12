@@ -1,0 +1,9 @@
+C:\GitHub\EcoHelp\EcoHelp.BusinessLogic\bin\Debug\EcoHelp.BusinessLogic.dll
+C:\GitHub\EcoHelp\EcoHelp.BusinessLogic\bin\Debug\EcoHelp.BusinessLogic.pdb
+C:\GitHub\EcoHelp\EcoHelp.BusinessLogic\obj\Debug\EcoHelp.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\GitHub\EcoHelp\EcoHelp.BusinessLogic\obj\Debug\EcoHelp.BusinessLogic.dll
+C:\GitHub\EcoHelp\EcoHelp.BusinessLogic\obj\Debug\EcoHelp.BusinessLogic.pdb
+C:\GitHub\EcoHelp\EcoHelp.BusinessLogic\bin\Debug\EcoHelp.DataAccess.dll
+C:\GitHub\EcoHelp\EcoHelp.BusinessLogic\bin\Debug\EcoHelp.Utilities.dll
+C:\GitHub\EcoHelp\EcoHelp.BusinessLogic\bin\Debug\EcoHelp.DataAccess.pdb
+C:\GitHub\EcoHelp\EcoHelp.BusinessLogic\bin\Debug\EcoHelp.Utilities.pdb

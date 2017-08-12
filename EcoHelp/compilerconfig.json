@@ -1,0 +1,26 @@
+﻿[
+  {
+    "outputFile": "Resources/css/StyleSheet1.css",
+    "inputFile": "Resources/css/StyleSheet1.less"
+  },
+  {
+    "outputFile": "Resources/css/toast.css",
+    "inputFile": "Resources/css/toast.less"
+  },
+  {
+    "outputFile": "Resources/css/validations.css",
+    "inputFile": "Resources/css/validations.less"
+  },
+  {
+    "outputFile": "Resources/css/spinner.css",
+    "inputFile": "Resources/css/spinner.less"
+  },
+  {
+    "outputFile": "Resources/css/sidenav.css",
+    "inputFile": "Resources/css/sidenav.less"
+  },
+  {
+    "outputFile": "Resources/css/layout.css",
+    "inputFile": "Resources/css/layout.less"
+  }
+]

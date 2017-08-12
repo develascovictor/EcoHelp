@@ -1,0 +1,1 @@
+﻿#toast-container{top:auto;right:auto;min-width:8%;z-index:1000005;}@media only screen and (min-width:993px){#toast-container{left:2%;bottom:2%;}}@media only screen and (max-width:992px){#toast-container{left:5%;bottom:2%;width:auto;max-width:100%;}}#toast-container .toast{line-height:1.5;height:auto;}#toast-container .toast span{padding-top:10px;padding-bottom:15px;}

@@ -1,0 +1,36 @@
+﻿ /* label color */
+.input-field {
+    label {
+        color: #000;
+    }
+    
+    input[type=text] {
+        &.valid {
+        /* valid color */
+            border-bottom: 1px solid #000;
+            box-shadow: 0 1px 0 0 #000;
+        }
+        
+        &.invalid {
+        /* invalid color */
+            border-bottom: 1px solid #000;
+            box-shadow: 0 1px 0 0 #000;
+        }
+
+        &:focus {
+            /* label underline focus color */
+            border-bottom: 1px solid #000;
+            box-shadow: 0 1px 0 0 #000;
+
+            + label {
+                /* label focus color */
+                color: #000;
+            }
+        }
+    }
+    
+    /* icon prefix focus color */
+    .prefix.active {
+        color: #000;
+    }
+}
