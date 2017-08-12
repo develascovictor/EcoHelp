@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,7 +51,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\BusinessName.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Category.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cause.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CauseSolution.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Contact.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Developer.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EcoHelp.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EcoHelp.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EcoHelp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EcoHelp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EcoHelp.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Issue.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\IssueCause.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Solution.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Station.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SupportTechnician.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Zone.cs">
+      <DependentUpon>EcoHelp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EcoHelp.Utilities\EcoHelp.Utilities.csproj">
@@ -59,7 +117,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Model\EcoHelp.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EcoHelp.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\EcoHelp.edmx.diagram">
+      <DependentUpon>EcoHelp.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\EcoHelp.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EcoHelp.edmx</DependentUpon>
+      <LastGenOutput>EcoHelp.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\EcoHelp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EcoHelp.edmx</DependentUpon>
+      <LastGenOutput>EcoHelp.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

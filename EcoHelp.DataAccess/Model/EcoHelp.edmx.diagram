@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3054e5cfdfc34c59aeb0eaff6811c0e8" Name="Diagram1" ZoomLevel="133">
+        <EntityTypeShape EntityType="EcoHelpModel.BusinessName" Width="1.5" PointX="10.625" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.Category" Width="1.5" PointX="13.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.Cause" Width="1.5" PointX="17.625" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.CauseSolution" Width="1.5" PointX="15.375" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.Contact" Width="1.5" PointX="8.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.Developer" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.IssueCause" Width="1.5" PointX="17.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.Issue" Width="1.5" PointX="15.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.Solution" Width="1.5" PointX="13.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.Station" Width="1.5" PointX="8.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.SupportTechnician" Width="1.5" PointX="10.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.User" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcoHelpModel.Zone" Width="1.5" PointX="10.625" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="EcoHelpModel.FK_Stations_BusinessNames" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_Issues_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_CauseSolutions_Causes" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_IssueCauses_Causes" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_CauseSolutions_Solutions" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_Developers_Contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_Stations_Contacts1" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_Stations_Contacts2" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_SupportTechnicians_Contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_Users_Contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_IssueCauses_Issues" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_Stations_Zones" ManuallyRouted="false" />
+        <AssociationConnector Association="EcoHelpModel.FK_SupportTechnicians_Zones" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
