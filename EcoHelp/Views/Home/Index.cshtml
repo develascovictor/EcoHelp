@@ -1,31 +1,95 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = null;
 }
+<!DOCTYPE html>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<html ng-app="EcoApp">
+    <head>
+        <!--Application Metadata-->
+        <meta charset="utf-8" />
+        <meta name="description" content="" />
+        <meta name="author" content="Victor De Velasco" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+        <!--Project Information-->
+        <title>
+            Eco Help
+        </title>
+
+        <!-- Styling Libraries -->
+        <link href="@Url.Content("~/Resources/libraries/material-icons/material-icons.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/Resources/libraries/materialize/css/materialize.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/Resources/css/layout.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/Resources/css/toast.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/Resources/css/sidenav.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/Resources/css/spinner.css")" rel="stylesheet" />
+
+        <script>
+            var path = "@ViewBag.Url";
+        </script>
+
+        <!--Angular Core-->
+        <script src="@Url.Content("~/Resources/libraries/jquery/jquery-3.1.1.js")"></script>
+        <script src="@Url.Content("~/Resources/libraries/linqjs/jquery.linq.js")"></script>
+        <script src="@Url.Content("~/Resources/libraries/linqjs/linq.js")"></script>
+        <script src="@Url.Content("~/Resources/libraries/materialize/js/materialize.js")"></script>
+        <script src="@Url.Content("~/Resources/libraries/angular/angular.js")"></script>
+        <script src="@Url.Content("~/Resources/libraries/angular/angular-animate.js")"></script>
+        <script src="@Url.Content("~/Resources/libraries/angular/angular-sanitize.js")"></script>
+        <script src="@Url.Content("~/Resources/libraries/angular/angular-route.js")"></script>
+        <script src="@Url.Content("~/App/app.module.js")"></script>
+        <script src="@Url.Content("~/App/app.config.js")"></script>
+        <script src="@Url.Content("~/App/Components/Directives/fallbackScr.js")"></script>
+        <script src="@Url.Content("~/App/Components/Home/Home.Controller.js")"></script>
+    </head>
+
+    <body ng-controller="Home" ng-cloak>
+        <nav class="nav grey darken-4">
+            <a href="#" data-activates="slide-out" class="button-collapse">
+                <i class="material-icons">
+                    menu
+                </i>
+            </a>
+
+            <img class="logo" src="~/Resources/images/gaslogo.jpg" />
+
+            <div class="title hide-on-med-and-down">
+                Eco Help
+            </div>
+
+            <ul class="hide-on-med-and-down">
+                <li class="user">
+                    <img fallback-src="{{FallBackPicture}}" ng-src="~/Resources/images/circle_person.png" alt="" />
+                    <div class="name">{{CurrentUser.FullName}}</div>
+                </li>
+            </ul>
+
+            <div class="clearfix"></div>
+        </nav>
+
+        <ul id="slide-out" class="side-nav">
+            <li class="head-item">
+                <span class="title">
+                    Eco Help
+                </span>
+
+                <img fallback-src="{{FallBackPicture}}" ng-src="~/Resources/images/circle_person.png" alt="" />
+                <div class="name">{{CurrentUser.FullName}}</div>
+            </li>
+
+            <li><a href="#!" class="btn blue waves-effect waves-light white-text">ecoNet</a></li>
+        </ul>
+
+        <div class="row marginless">
+            <div class="hide-on-med-and-down col s3 view">
+                <div class="left-nav">
+                    <ul>
+                        <li><a href="#!" class="btn blue waves-effect waves-light white-text">ecoNet</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

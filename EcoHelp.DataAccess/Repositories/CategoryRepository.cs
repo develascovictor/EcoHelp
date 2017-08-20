@@ -10,13 +10,12 @@ namespace EcoHelp.DataAccess.Repositories
         /// Method to get all active categories
         /// </summary>
         /// <returns></returns>
-        public List<Category> GetTravelRequestsWithPendingApprovals()
+        public List<Category> GetActiveCategories()
         {
             List<Category> categories = Db.Categories
                 .Where(c => c.IsActive)
                 .OrderBy(c => c.Name)
                 .ToList();
-
             return categories;
         }
     }
