@@ -138,11 +138,21 @@ h6 {
     .smaller-font {
         font-size: 12px !important;
     }
-}
 
-.head-item {
-    background-color: @black;
-    height: 110px;
+    .head-item {
+        background-color: @black;
+        height: 110px;
+    }
+
+    li {
+        ul {
+            padding-left: 20px;
+
+            li {
+                line-height: 20px;
+            }
+        }
+    }
 }
 
 /* Left Nav*/
@@ -157,7 +167,40 @@ h6 {
     }
 
     li {
-        line-height: 48px;
+        line-height: 40px;
+
+        &.category-item {
+            > b, > span, > a {
+                padding-left: 20px;
+            }
+
+            ul {
+                padding-left: 40px;
+
+                li {
+                    line-height: 30px;
+
+                    a {
+                        span {
+                            font-size: 11px;
+
+                            &.priority-3 {
+                                color: @nice-orange;
+                            }
+                            &.priority-2 {
+                                color: @nice-yellow;
+                            }
+                            &.priority-1 {
+                                color: @nice-green;
+                            }
+                            &.priority-0 {
+                                color: @gray;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         a {
             color: @black2;

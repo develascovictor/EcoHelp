@@ -44,6 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\VMCategory.cs" />
     <Compile Include="ViewModels\VMIssue.cs" />
+    <Compile Include="ViewModels\VMProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EcoHelp.DataAccess\EcoHelp.DataAccess.csproj">

@@ -43,6 +43,7 @@
         <script src="@Url.Content("~/App/app.config.js")"></script>
         <script src="@Url.Content("~/App/Components/Directives/fallbackScr.js")"></script>
         <script src="@Url.Content("~/App/Components/Home/Home.Controller.js")"></script>
+        <script src="@Url.Content("~/App/Components/Home/Home.Service.js")"></script>
     </head>
 
     <body ng-controller="Home" ng-cloak>
@@ -79,14 +80,36 @@
                 <div class="name">{{CurrentUser.FullName}}</div>
             </li>
 
-            <li><a href="#!" class="btn blue waves-effect waves-light white-text">ecoNet</a></li>
+            <li ng-repeat="category in Categories">
+                <a href="#!" class="waves-effect">{{category.Name}}</a>
+            </li>
         </ul>
 
         <div class="row marginless">
             <div class="hide-on-med-and-down col s3 view">
                 <div class="left-nav">
                     <ul>
-                        <li><a href="#!" class="btn blue waves-effect waves-light white-text">ecoNet</a></li>
+                        <li>
+                            <b>Errores</b>
+                        </li>
+
+                        <li class="category-item" ng-repeat="category in Categories">
+                            <div class="divider"></div>
+
+                            <b>{{category.Name}}</b>
+
+                            <ul>
+                                <li ng-repeat="issue in category.Issues">
+                                    <a href="#!" class="waves-effect">
+                                        {{issue.Name}}
+
+                                        <span class="priority-{{issue.Priority.Id}}">
+                                            &nbsp;&nbsp;&nbsp;({{issue.Priority.Name}})
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
