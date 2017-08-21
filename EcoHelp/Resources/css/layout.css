@@ -98,9 +98,15 @@ h6 {
 .side-nav .smaller-font {
   font-size: 12px !important;
 }
-.head-item {
+.side-nav .head-item {
   background-color: #222;
   height: 110px;
+}
+.side-nav li ul {
+  padding-left: 20px;
+}
+.side-nav li ul li {
+  line-height: 20px;
 }
 /* Left Nav*/
 .left-nav {
@@ -113,7 +119,33 @@ h6 {
   margin: 0;
 }
 .left-nav li {
-  line-height: 48px;
+  line-height: 40px;
+}
+.left-nav li.category-item > b,
+.left-nav li.category-item > span,
+.left-nav li.category-item > a {
+  padding-left: 20px;
+}
+.left-nav li.category-item ul {
+  padding-left: 40px;
+}
+.left-nav li.category-item ul li {
+  line-height: 30px;
+}
+.left-nav li.category-item ul li a span {
+  font-size: 11px;
+}
+.left-nav li.category-item ul li a span.priority-3 {
+  color: #F44336;
+}
+.left-nav li.category-item ul li a span.priority-2 {
+  color: #FF8F00;
+}
+.left-nav li.category-item ul li a span.priority-1 {
+  color: #43A047;
+}
+.left-nav li.category-item ul li a span.priority-0 {
+  color: #9E9E9E;
 }
 .left-nav li a {
   color: rgba(0, 0, 0, 0.87);

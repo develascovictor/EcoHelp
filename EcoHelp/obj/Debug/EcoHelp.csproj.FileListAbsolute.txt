@@ -57,3 +57,7 @@ C:\GitHub\EcoHelp\EcoHelp\bin\EntityFramework.SqlServer.dll
 C:\GitHub\EcoHelp\EcoHelp\bin\EcoHelp.BusinessLogic.pdb
 C:\GitHub\EcoHelp\EcoHelp\bin\EntityFramework.xml
 C:\GitHub\EcoHelp\EcoHelp\bin\EntityFramework.SqlServer.xml
+C:\GitHub\EcoHelp\EcoHelp\bin\EcoHelp.DataAccess.dll
+C:\GitHub\EcoHelp\EcoHelp\bin\EcoHelp.DataAccess.pdb
+C:\GitHub\EcoHelp\EcoHelp\bin\EcoHelp.Utilities.dll
+C:\GitHub\EcoHelp\EcoHelp\bin\EcoHelp.Utilities.pdb

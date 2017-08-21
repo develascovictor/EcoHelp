@@ -165,6 +165,9 @@
   <ItemGroup>
     <Content Include="App\app.config.js" />
     <Content Include="App\app.module.js" />
+    <Content Include="App\Components\Directives\fallbackScr.js" />
+    <Content Include="App\Components\Home\Home.Service.js" />
+    <Content Include="App\Components\Home\Home.Controller.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
@@ -253,7 +256,6 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Components\Home\" />
     <Folder Include="App\Components\Utilities\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
