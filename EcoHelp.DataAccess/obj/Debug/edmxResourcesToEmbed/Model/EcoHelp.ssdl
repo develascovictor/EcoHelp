@@ -43,6 +43,7 @@
     <Property Name="CauseSolutionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CauseId" Type="int" Nullable="false" />
     <Property Name="SolutionId" Type="int" Nullable="false" />
+    <Property Name="Sequence" Type="int" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="CreatedOn" Type="datetime" Nullable="false" />
     <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
@@ -83,6 +84,7 @@
     <Property Name="IssueCauseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IssueId" Type="int" Nullable="false" />
     <Property Name="CauseId" Type="int" Nullable="false" />
+    <Property Name="Sequence" Type="int" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="CreatedOn" Type="datetime" Nullable="false" />
     <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />

@@ -6,7 +6,8 @@ function HomeService($http) {
     var homePath = "Home/";
 
     return {
-        GetCategories: GetCategories
+        GetCategories: GetCategories,
+        GetCausesByIssueId: GetCausesByIssueId
     }
 
     function GetCategories() {
@@ -18,6 +19,24 @@ function HomeService($http) {
                 headers:
                 {
                     "Content-Type": "application/json"
+                }
+            }
+        );
+    }
+
+    function GetCausesByIssueId(issueId) {
+        return $http
+        (
+            {
+                url: path + homePath + "GetCausesByIssueId",
+                method: "POST",
+                headers:
+                {
+                    "Content-Type": "application/json"
+                },
+                data:
+                {
+                    issueId: issueId
                 }
             }
         );

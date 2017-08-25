@@ -100,7 +100,7 @@
 
                             <ul>
                                 <li ng-repeat="issue in category.Issues">
-                                    <a href="#!" class="waves-effect">
+                                    <a href="#!" class="waves-effect" ng-click="LoadCauses(issue)">
                                         {{issue.Name}}
 
                                         <span class="priority-{{issue.Priority.Id}}">

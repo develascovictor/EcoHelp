@@ -59,6 +59,19 @@ namespace EcoHelp.Controllers
 
             return Json(categories, JsonRequestBehavior.AllowGet);
         }
+
+        /// <summary>
+        /// Method to get all causes from a specific issue
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult GetCausesByIssueId(int issueId)
+        {
+            CauseContext causeContext = new CauseContext();
+            List<VMCause> causes = causeContext.GetActiveCausesByIssueId(issueId);
+
+            return Json(causes);
+        }
         #endregion
     }
 }
