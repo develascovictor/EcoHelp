@@ -55,16 +55,6 @@ namespace EcoHelp.Controllers
 
         #region Web Methods
         /// <summary>
-        /// Method to login to page
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult Login(string username, string password)
-        {
-            return Json(null);
-        }
-
-        /// <summary>
         /// Method to get all data for main page
         /// </summary>
         /// <returns></returns>
@@ -74,47 +64,33 @@ namespace EcoHelp.Controllers
             CategoryContext categoryContext = new CategoryContext();
             ContactContext contactContext = new ContactContext();
 
+            List<VMContact> supervisors = new List<VMContact>();
             List<VMCategory> categories = categoryContext.GetActiveCategories();
 
-
-            List<VMContact> supervisors = new List<VMContact>();
-
-            if (_currentUser == null || _currentUser.Id <= 0)
+            switch ((Roles)_currentUser.Role.Id)
             {
-                //User not found
-            }
+                case Roles.Developer:
+                    {
+                        break;
+                    }
 
-            else if (!_currentUser.IsActive)
-            {
-                //User not active
-            }
+                case Roles.SupportTechnician:
+                    {
+                        //Only one zone
+                        break;
+                    }
 
-            else
-            {
+                case Roles.Supervisor:
+                    {
+                        //More than zone?
+                        break;
+                    }
 
-                switch ((Roles)_currentUser.Role.Id)
-                {
-                    case Roles.Developer:
-                        {
-                            break;
-                        }
-
-                    case Roles.SupportTechnician:
-                        {
-                            break;
-                        }
-
-                    case Roles.Supervisor:
-                        {
-                            break;
-                        }
-
-                    case Roles.Station:
-                        {
-                            supervisors = contactContext.GetSupervisorContactsByZoneId(_currentUser.AllowedStations[0].ZoneId);
-                            break;
-                        }
-                }
+                case Roles.Station:
+                    {
+                        supervisors = contactContext.GetSupervisorContactsByZoneId(_currentUser.AllowedStations[0].ZoneId);
+                        break;
+                    }
             }
 
             return Json(categories, JsonRequestBehavior.AllowGet);
