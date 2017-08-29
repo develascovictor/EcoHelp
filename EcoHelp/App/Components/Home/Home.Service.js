@@ -6,15 +6,15 @@ function HomeService($http) {
     var homePath = "Home/";
 
     return {
-        GetCategories: GetCategories,
+        GetPageData: GetPageData,
         GetCausesByIssueId: GetCausesByIssueId
     }
 
-    function GetCategories() {
+    function GetPageData() {
         return $http
         (
             {
-                url: path + homePath + "GetCategories",
+                url: path + homePath + "GetPageData",
                 method: "GET",
                 headers:
                 {

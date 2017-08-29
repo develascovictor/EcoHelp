@@ -11,6 +11,9 @@ function Home($scope, HomeService) {
     $scope.SelectedIssue = {};
 
     $scope.Categories = [];
+    $scope.Supervisors = [];
+    $scope.SupportTechnicians = [];
+    $scope.Developers = [];
     $scope.Causes = [];
 
     $scope.LoadCauses = LoadCauses;
@@ -18,12 +21,15 @@ function Home($scope, HomeService) {
     function Init() {
         $scope.CurrentUser.FullName = "Victor De Velasco";
 
-        var promise = HomeService.GetCategories();
+        var promise = HomeService.GetPageData();
 
         promise.then
         (
             function (response) {
-                $scope.Categories = response.data;
+                $scope.Categories = response.data.Categories;
+                $scope.Supervisors = response.data.Supervisors;
+                $scope.SupportTechnicians = response.data.SupportTechnicians;
+                $scope.Developers = response.data.Developers;
             }
         )
         .catch

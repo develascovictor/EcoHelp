@@ -63,8 +63,10 @@ namespace EcoHelp.Controllers
         {
             CategoryContext categoryContext = new CategoryContext();
             ContactContext contactContext = new ContactContext();
-
+            
             List<VMContact> supervisors = new List<VMContact>();
+            List<VMContact> supportTechnicians = new List<VMContact>();
+            List<VMContact> developers = contactContext.GetActiveDeveloperContacts();
             List<VMCategory> categories = categoryContext.GetActiveCategories();
 
             switch ((Roles)_currentUser.Role.Id)
@@ -75,25 +77,16 @@ namespace EcoHelp.Controllers
                     }
 
                 case Roles.SupportTechnician:
-                    {
-                        //Only one zone
-                        break;
-                    }
-
                 case Roles.Supervisor:
-                    {
-                        //More than zone?
-                        break;
-                    }
-
                 case Roles.Station:
                     {
-                        supervisors = contactContext.GetSupervisorContactsByZoneId(_currentUser.AllowedStations[0].ZoneId);
+                        supervisors = contactContext.GetActiveSupervisorContactsByZoneId(_currentUser.AllowedStations[0].ZoneId);
+                        supportTechnicians = contactContext.GetActiveSupportTechnicianContactsByZoneId(_currentUser.AllowedStations[0].ZoneId);
                         break;
                     }
             }
 
-            return Json(categories, JsonRequestBehavior.AllowGet);
+            return Json(new { Supervisors = supervisors, SupportTechnicians = supportTechnicians, Developers = developers, Categories = categories }, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
