@@ -63,7 +63,8 @@ namespace EcoHelp.Controllers
         {
             CategoryContext categoryContext = new CategoryContext();
             ContactContext contactContext = new ContactContext();
-            
+
+            VMContact supervisor = null;
             List<VMContact> supervisors = new List<VMContact>();
             List<VMContact> supportTechnicians = new List<VMContact>();
             List<VMContact> developers = contactContext.GetActiveDeveloperContacts();
@@ -86,7 +87,7 @@ namespace EcoHelp.Controllers
                     }
             }
 
-            return Json(new { Supervisors = supervisors, SupportTechnicians = supportTechnicians, Developers = developers, Categories = categories }, JsonRequestBehavior.AllowGet);
+            return Json(new { CurrentUser = _currentUser, Supervisors = supervisors, SupportTechnicians = supportTechnicians, Developers = developers, Categories = categories }, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>

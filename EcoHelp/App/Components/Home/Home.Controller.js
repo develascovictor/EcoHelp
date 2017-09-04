@@ -10,26 +10,50 @@ function Home($scope, HomeService) {
 
     $scope.SelectedIssue = {};
 
+    $scope.ContactSections = [];
     $scope.Categories = [];
-    $scope.Supervisors = [];
-    $scope.SupportTechnicians = [];
-    $scope.Developers = [];
     $scope.Causes = [];
 
     $scope.LoadCauses = LoadCauses;
 
     function Init() {
-        $scope.CurrentUser.FullName = "Victor De Velasco";
-
         var promise = HomeService.GetPageData();
 
         promise.then
         (
             function (response) {
+                var supervisorContact;
+                var currentUser = response.data.CurrentUser;
+                var supervisors = response.data.Supervisors;
+                var supportTechnicians = response.data.SupportTechnicians;
+                var developers = response.data.Developers;
+                $scope.CurrentUser = currentUser;
                 $scope.Categories = response.data.Categories;
-                $scope.Supervisors = response.data.Supervisors;
-                $scope.SupportTechnicians = response.data.SupportTechnicians;
-                $scope.Developers = response.data.Developers;
+
+                switch (currentUser.Role.Id) {
+                    //Supervisor
+                    case 3:
+                        {
+                            supervisorContact = currentUser.Contact;
+                            break;
+                        }
+
+                    //Station
+                    case 4:
+                        {
+                            supervisorContact = currentUser.AllowedStations[0].SupervisorContact;
+                            break;
+                        }
+                }
+
+                var contactId = (supervisorContact !== undefined && supervisorContact !== null) ? supervisorContact.Id : 0;
+
+                $scope.ContactSections.push(GetContactSection("Supervisor", [supervisorContact]));
+                $scope.ContactSections.push(GetContactSection("Supervisores de Zona", Enumerable.From(supervisors).Where(function (x) { return x.Id !== contactId; }).ToArray()));
+                $scope.ContactSections.push(GetContactSection("Soporte Técnico", supportTechnicians));
+                $scope.ContactSections.push(GetContactSection("Desarrollo", developers));
+
+                setTimeout(SetContactInfoHeight, 1);
             }
         )
         .catch
@@ -38,6 +62,15 @@ function Home($scope, HomeService) {
                 alert("SOMETHING WENT WRONG!")
             }
         );
+    }
+
+    function GetContactSection(title, contacts) {
+        var contactSection =
+            {
+                Title: title,
+                Contacts: contacts
+            };
+        return contactSection;
     }
 
     function LoadCauses(issue) {
@@ -77,6 +110,19 @@ function Home($scope, HomeService) {
                 }
             );
         }
+    }
+
+    function SetContactInfoHeight() {
+        var height = 0;
+        var highest = 0;
+        var columns = $(".contact-info").children();
+
+        columns.each(function () {
+            height = $(this).height();
+            highest = height > highest ? height : highest;
+        });
+
+        columns.css("height", highest);
     }
 
     Init();
