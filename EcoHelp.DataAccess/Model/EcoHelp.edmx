@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EcoHelpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EcoHelpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BusinessNames">
           <Key>
             <PropertyRef Name="BusinessNameId" />
@@ -48,6 +48,7 @@
           <Property Name="CauseSolutionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CauseId" Type="int" Nullable="false" />
           <Property Name="SolutionId" Type="int" Nullable="false" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
@@ -88,6 +89,7 @@
           <Property Name="IssueCauseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IssueId" Type="int" Nullable="false" />
           <Property Name="CauseId" Type="int" Nullable="false" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
@@ -399,8 +401,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EcoHelpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -458,6 +459,7 @@
           <Property Name="LastModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Cause" Relationship="Self.FK_CauseSolutions_Causes" FromRole="CauseSolutions" ToRole="Causes" />
           <NavigationProperty Name="Solution" Relationship="Self.FK_CauseSolutions_Solutions" FromRole="CauseSolutions" ToRole="Solutions" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -506,6 +508,7 @@
           <Property Name="LastModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Cause" Relationship="Self.FK_IssueCauses_Causes" FromRole="IssueCauses" ToRole="Causes" />
           <NavigationProperty Name="Issue" Relationship="Self.FK_IssueCauses_Issues" FromRole="IssueCauses" ToRole="Issues" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Issue">
           <Key>
@@ -872,6 +875,7 @@
           <EntitySetMapping Name="CauseSolutions">
             <EntityTypeMapping TypeName="EcoHelpModel.CauseSolution">
               <MappingFragment StoreEntitySet="CauseSolutions">
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
                 <ScalarProperty Name="CauseSolutionId" ColumnName="CauseSolutionId" />
                 <ScalarProperty Name="CauseId" ColumnName="CauseId" />
                 <ScalarProperty Name="SolutionId" ColumnName="SolutionId" />
@@ -915,6 +919,7 @@
           <EntitySetMapping Name="IssueCauses">
             <EntityTypeMapping TypeName="EcoHelpModel.IssueCause">
               <MappingFragment StoreEntitySet="IssueCauses">
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
                 <ScalarProperty Name="IssueCauseId" ColumnName="IssueCauseId" />
                 <ScalarProperty Name="IssueId" ColumnName="IssueId" />
                 <ScalarProperty Name="CauseId" ColumnName="CauseId" />

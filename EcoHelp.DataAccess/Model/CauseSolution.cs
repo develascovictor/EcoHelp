@@ -22,6 +22,7 @@ namespace EcoHelp.DataAccess.Model
         public string CreatedBy { get; set; }
         public System.DateTime LastModifiedOn { get; set; }
         public string LastModifiedBy { get; set; }
+        public int Sequence { get; set; }
     
         public virtual Cause Cause { get; set; }
         public virtual Solution Solution { get; set; }

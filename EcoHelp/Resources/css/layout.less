@@ -94,6 +94,8 @@ p {
 h5 {
     color: @nice-blue;
     margin: 20px 0 10px 10px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 h6 {
@@ -740,13 +742,6 @@ table.highlight > tbody > tr {
     transition: none !important;
 }
 
-/* Table Adjustments */
-th {
-    color: #868686;
-    font-weight: normal;
-    font-size: 12px;
-}
-
 /* Supporting classes */
 .pointer-click:not(:disabled) {
     cursor: pointer !important;
@@ -873,6 +868,8 @@ textarea.materialize-textarea[readonly="readonly"] + label {
 
 table {
     > thead > tr > th {
+        color: #868686;
+
         @media only screen and (max-width: 992px) {
             padding-top: 10px;
             padding-bottom: 10px;
@@ -881,6 +878,8 @@ table {
 
     > thead > tr > th,
     > tbody > tr > td {
+        font-size: 16px;
+
         &.width5 {
             width: 5%;
         }
@@ -968,4 +967,16 @@ table {
 
 .caterpillar-yellow {
     color: @nice-yellow;
+}
+
+.main-screen {
+    padding-top: 20px;
+}
+
+.contact-info {
+    > div:not(:first-child) {
+        border-left: solid;
+        border-color: #d0d0d0;
+        border-width: 1px;
+    }
 }

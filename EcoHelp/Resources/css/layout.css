@@ -60,6 +60,8 @@ p {
 h5 {
   color: #29B6F6;
   margin: 20px 0 10px 10px;
+  font-size: 18px;
+  font-weight: 500;
 }
 h6 {
   background-color: #E3F2FD;
@@ -556,12 +558,6 @@ label {
 table.highlight > tbody > tr {
   transition: none !important;
 }
-/* Table Adjustments */
-th {
-  color: #868686;
-  font-weight: normal;
-  font-size: 12px;
-}
 /* Supporting classes */
 .pointer-click:not(:disabled) {
   cursor: pointer !important;
@@ -665,11 +661,18 @@ textarea.materialize-textarea:disabled + label,
 textarea.materialize-textarea[readonly="readonly"] + label {
   color: rgba(0, 0, 0, 0.6);
 }
+table > thead > tr > th {
+  color: #868686;
+}
 @media only screen and (max-width: 992px) {
   table > thead > tr > th {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+}
+table > thead > tr > th,
+table > tbody > tr > td {
+  font-size: 16px;
 }
 table > thead > tr > th.width5,
 table > tbody > tr > td.width5 {
@@ -777,4 +780,12 @@ table > tbody > tr > td.risk-0 {
 }
 .caterpillar-yellow {
   color: #FF8F00;
+}
+.main-screen {
+  padding-top: 20px;
+}
+.contact-info > div:not(:first-child) {
+  border-left: solid;
+  border-color: #d0d0d0;
+  border-width: 1px;
 }

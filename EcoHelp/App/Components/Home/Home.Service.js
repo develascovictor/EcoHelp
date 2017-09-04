@@ -6,18 +6,37 @@ function HomeService($http) {
     var homePath = "Home/";
 
     return {
-        GetCategories: GetCategories
+        GetPageData: GetPageData,
+        GetCausesByIssueId: GetCausesByIssueId
     }
 
-    function GetCategories() {
+    function GetPageData() {
         return $http
         (
             {
-                url: path + homePath + "GetCategories",
+                url: path + homePath + "GetPageData",
                 method: "GET",
                 headers:
                 {
                     "Content-Type": "application/json"
+                }
+            }
+        );
+    }
+
+    function GetCausesByIssueId(issueId) {
+        return $http
+        (
+            {
+                url: path + homePath + "GetCausesByIssueId",
+                method: "POST",
+                headers:
+                {
+                    "Content-Type": "application/json"
+                },
+                data:
+                {
+                    issueId: issueId
                 }
             }
         );

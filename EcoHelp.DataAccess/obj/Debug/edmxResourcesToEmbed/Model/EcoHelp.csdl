@@ -54,6 +54,7 @@
     <Property Name="LastModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Cause" Relationship="Self.FK_CauseSolutions_Causes" FromRole="CauseSolutions" ToRole="Causes" />
     <NavigationProperty Name="Solution" Relationship="Self.FK_CauseSolutions_Solutions" FromRole="CauseSolutions" ToRole="Solutions" />
+    <Property Name="Sequence" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Contact">
     <Key>
@@ -102,6 +103,7 @@
     <Property Name="LastModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Cause" Relationship="Self.FK_IssueCauses_Causes" FromRole="IssueCauses" ToRole="Causes" />
     <NavigationProperty Name="Issue" Relationship="Self.FK_IssueCauses_Issues" FromRole="IssueCauses" ToRole="Issues" />
+    <Property Name="Sequence" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Issue">
     <Key>

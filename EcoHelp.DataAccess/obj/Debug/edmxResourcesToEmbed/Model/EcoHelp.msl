@@ -43,6 +43,7 @@
     <EntitySetMapping Name="CauseSolutions">
       <EntityTypeMapping TypeName="EcoHelpModel.CauseSolution">
         <MappingFragment StoreEntitySet="CauseSolutions">
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
           <ScalarProperty Name="CauseSolutionId" ColumnName="CauseSolutionId" />
           <ScalarProperty Name="CauseId" ColumnName="CauseId" />
           <ScalarProperty Name="SolutionId" ColumnName="SolutionId" />
@@ -86,6 +87,7 @@
     <EntitySetMapping Name="IssueCauses">
       <EntityTypeMapping TypeName="EcoHelpModel.IssueCause">
         <MappingFragment StoreEntitySet="IssueCauses">
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
           <ScalarProperty Name="IssueCauseId" ColumnName="IssueCauseId" />
           <ScalarProperty Name="IssueId" ColumnName="IssueId" />
           <ScalarProperty Name="CauseId" ColumnName="CauseId" />
