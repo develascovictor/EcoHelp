@@ -22,6 +22,7 @@
         <link href="@Url.Content("~/Resources/libraries/material-icons/material-icons.css")" rel="stylesheet" />
         <link href="@Url.Content("~/Resources/libraries/materialize/css/materialize.css")" rel="stylesheet" />
         <link href="@Url.Content("~/Resources/css/layout.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/Resources/css/navbar.css")" rel="stylesheet" />
         <link href="@Url.Content("~/Resources/css/toast.css")" rel="stylesheet" />
         <link href="@Url.Content("~/Resources/css/sidenav.css")" rel="stylesheet" />
         <link href="@Url.Content("~/Resources/css/spinner.css")" rel="stylesheet" />
@@ -46,134 +47,127 @@
         <script src="@Url.Content("~/App/Components/Home/Home.Service.js")"></script>
     </head>
 
-<body ng-controller="Home" ng-cloak>
-    <nav class="nav grey darken-4">
-        <a href="#" data-activates="slide-out" class="button-collapse">
-            <i class="material-icons">
-                menu
-            </i>
-        </a>
+    <body ng-controller="Home" ng-cloak>
+        <nav class="navbar">
+            <img class="logo hide-on-med-and-down" src="~/Resources/images/gaslogo.jpg" />
 
-        <img class="logo" src="~/Resources/images/gaslogo.jpg" />
+            <a href="#" data-activates="slide-out" class="button-collapse">
+                <i class="material-icons">
+                    menu
+                </i>
+            </a>
 
-        <div class="title hide-on-med-and-down">
-            Eco Help
-        </div>
+            <div class="title hide-on-med-and-down">
+                Eco Help - {{CurrentUser.Contact.FullName}}
+            </div>
 
-        <ul class="hide-on-med-and-down">
-            <li class="user">
+            <div class="bg-border-radius"></div>
+        </nav>
+
+        <ul id="slide-out" class="side-nav">
+            <li class="head-item">
+                <span class="title">
+                    Eco Help
+                </span>
+
                 <img fallback-src="{{FallBackPicture}}" ng-src="~/Resources/images/circle_person.png" alt="" />
-                <div class="name">{{CurrentUser.Contact.FullName}}</div>
+                <div class="name">{{CurrentUser.FullName}}</div>
+            </li>
+
+            <li ng-repeat="category in Categories">
+                <a href="#!" class="waves-effect">{{category.Name}}</a>
             </li>
         </ul>
 
-        <div class="clearfix"></div>
-    </nav>
+        <div class="row marginless">
+            <div class="hide-on-med-and-down view col s3">
+                <div class="left-nav">
+                    <ul>
+                        <li>
+                            <b>Errores</b>
+                        </li>
 
-    <ul id="slide-out" class="side-nav">
-        <li class="head-item">
-            <span class="title">
-                Eco Help
-            </span>
+                        <li class="category-item" ng-repeat="category in Categories">
+                            <div class="divider"></div>
 
-            <img fallback-src="{{FallBackPicture}}" ng-src="~/Resources/images/circle_person.png" alt="" />
-            <div class="name">{{CurrentUser.FullName}}</div>
-        </li>
+                            <b>{{category.Name}}</b>
 
-        <li ng-repeat="category in Categories">
-            <a href="#!" class="waves-effect">{{category.Name}}</a>
-        </li>
-    </ul>
+                            <ul>
+                                <li ng-repeat="issue in category.Issues">
+                                    <a href="#!" class="waves-effect" ng-click="LoadCauses(issue)">
+                                        {{issue.Name}}
 
-    <div class="row marginless">
-        <div class="hide-on-med-and-down view col s3">
-            <div class="left-nav">
-                <ul>
-                    <li>
-                        <b>Errores</b>
-                    </li>
-
-                    <li class="category-item" ng-repeat="category in Categories">
-                        <div class="divider"></div>
-
-                        <b>{{category.Name}}</b>
-
-                        <ul>
-                            <li ng-repeat="issue in category.Issues">
-                                <a href="#!" class="waves-effect" ng-click="LoadCauses(issue)">
-                                    {{issue.Name}}
-
-                                    <span class="priority-{{issue.Priority.Id}}">
-                                        &nbsp;&nbsp;&nbsp;({{issue.Priority.Name}})
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                                        <span class="priority-{{issue.Priority.Id}}">
+                                            &nbsp;&nbsp;&nbsp;({{issue.Priority.Name}})
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <div class="main-screen view white z-depth-1 col s12 m12 l9" style="padding-top: 20px">
-            <div ng-show="SelectedIssue.Id">
-                <h6>{{SelectedIssue.Name}}</h6>
+            <div class="main-screen view white z-depth-1 col s12 m12 l9" style="padding-top: 20px">
+                <div ng-show="SelectedIssue.Id">
+                    <h6>{{SelectedIssue.Name}}</h6>
 
-                <div class="row">
-                    <div class="col s12">
-                        <table class="highlight" ng-show="Causes && Causes.length > 0">
+                    <div class="row">
+                        <div class="col s12">
+                            <table class="highlight" ng-show="Causes && Causes.length > 0">
+                                <thead>
+                                    <tr>
+                                        <th class="width50">Causa</th>
+                                        <th class="width50">Soluci&oacute;n</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="cause in Causes">
+                                        <td><b>{{cause.Description}}</b></td>
+
+                                        <td>
+                                            <ul>
+                                                <li ng-repeat="solution in cause.Solutions">
+                                                    <b>{{$index + 1}}) {{solution.Description}}</b>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="center" ng-show="!Causes || Causes.length <= 0">
+                                <b>No hay causas registradas.</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Contactos</h6>
+
+                <div class="contact-info row">
+                    <div class="col s3" ng-repeat="contactSection in ContactSections">
+                        <h5>{{contactSection.Title}}</h5>
+
+                        <table>
                             <thead>
                                 <tr>
-                                    <th class="width50">Causa</th>
-                                    <th class="width50">Soluci&oacute;n</th>
+                                    <th class="width75">Nombre</th>
+                                    <th class="center width25">Marcaci&oacute;n</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr ng-repeat="cause in Causes">
-                                    <td><b>{{cause.Description}}</b></td>
-
-                                    <td>
-                                        <ul>
-                                            <li ng-repeat="solution in cause.Solutions">
-                                                <b>{{$index + 1}}) {{solution.Description}}</b>
-                                            </li>
-                                        </ul>
-                                    </td>
+                                <tr ng-repeat="contact in contactSection.Contacts">
+                                    <td>{{contact.FullName}}</td>
+                                    <td class="center">{{contact.SpeedDial}}</td>
                                 </tr>
                             </tbody>
                         </table>
-
-                        <div class="center" ng-show="!Causes || Causes.length <= 0">
-                            <b>No hay causas registradas.</b>
-                        </div>
                     </div>
                 </div>
             </div>
-
-            <h6>Contactos</h6>
-
-            <div class="contact-info row">
-                <div class="col s3" ng-repeat="contactSection in ContactSections">
-                    <h5>{{contactSection.Title}}</h5>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="width75">Nombre</th>
-                                <th class="center width25">Marcaci&oacute;n</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr ng-repeat="contact in contactSection.Contacts">
-                                <td>{{contact.FullName}}</td>
-                                <td class="center">{{contact.SpeedDial}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

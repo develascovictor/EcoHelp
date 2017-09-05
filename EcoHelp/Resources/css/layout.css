@@ -1,53 +1,6 @@
 ﻿body {
   background-color: #EBEFF5;
 }
-nav {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-}
-nav .title {
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 0 0 20px;
-  font-size: 18px;
-}
-nav ul {
-  float: right;
-  margin: 0 10px 0 0;
-}
-nav ul li {
-  display: inline-block;
-  color: #FFF;
-  font-size: 14px;
-  padding: 0 8px 0 8px;
-}
-nav ul li.apps i {
-  color: #FFF;
-  font-size: 24px;
-  margin: 4px;
-}
-nav ul li.apps i:hover {
-  color: #d4d4d4;
-  font-size: 24px;
-  margin: 10px;
-}
-nav ul li.user {
-  vertical-align: top;
-  margin: 0 0 0 0;
-}
-nav ul li.user img {
-  vertical-align: middle;
-  height: 36px;
-  border-radius: 50px;
-  display: inline-block;
-  margin: 0 0 0 16px;
-}
-nav ul li.user div.name {
-  display: inline-block;
-  margin: 0 0 0 6px;
-  vertical-align: top;
-}
 .logo {
   margin: 4px 0 0 0;
   width: 130px;

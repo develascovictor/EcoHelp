@@ -180,6 +180,12 @@
     <Content Include="Resources\css\layout.min.css">
       <DependentUpon>layout.css</DependentUpon>
     </Content>
+    <Content Include="Resources\css\navbar.css">
+      <DependentUpon>navbar.less</DependentUpon>
+    </Content>
+    <Content Include="Resources\css\navbar.min.css">
+      <DependentUpon>navbar.css</DependentUpon>
+    </Content>
     <Content Include="Resources\css\sidenav.css">
       <DependentUpon>sidenav.less</DependentUpon>
     </Content>
@@ -205,6 +211,7 @@
       <DependentUpon>validations.css</DependentUpon>
     </Content>
     <Content Include="Resources\images\circle_person.png" />
+    <Content Include="Resources\images\gaslogo.jpg" />
     <Content Include="Resources\libraries\angular\angular-animate.js" />
     <Content Include="Resources\libraries\angular\angular-animate.min.js" />
     <Content Include="Resources\libraries\angular\angular-aria.js" />
@@ -320,6 +327,7 @@
     <Content Include="Resources\css\toast.less" />
     <Content Include="Resources\css\validations.less" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Resources\css\navbar.less" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EcoHelp.BusinessLogic\EcoHelp.BusinessLogic.csproj">

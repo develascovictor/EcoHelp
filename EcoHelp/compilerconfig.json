@@ -22,5 +22,9 @@
   {
     "outputFile": "Resources/css/layout.css",
     "inputFile": "Resources/css/layout.less"
+  },
+  {
+    "outputFile": "Resources/css/navbar.css",
+    "inputFile": "Resources/css/navbar.less"
   }
 ]
