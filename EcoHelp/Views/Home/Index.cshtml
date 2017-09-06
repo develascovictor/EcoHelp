@@ -82,27 +82,30 @@
         <div class="row marginless">
             <div class="hide-on-med-and-down view col s3">
                 <div class="left-nav">
-                    <ul>
+                    <ul class="collapsible" data-collapsible="accordion">
                         <li>
-                            <b>Errores</b>
+                            <h5>Categor&iacute;as</h5>
+                            <div class="divider"></div>
                         </li>
 
                         <li class="category-item" ng-repeat="category in Categories">
-                            <div class="divider"></div>
+                            <div class="collapsible-header">
+                                <b>{{category.Name}}</b>
+                            </div>
 
-                            <b>{{category.Name}}</b>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li ng-repeat="issue in category.Issues">
+                                        <a href="#!" class="waves-effect" ng-click="LoadCauses(issue)">
+                                            {{issue.Name}}
 
-                            <ul>
-                                <li ng-repeat="issue in category.Issues">
-                                    <a href="#!" class="waves-effect" ng-click="LoadCauses(issue)">
-                                        {{issue.Name}}
-
-                                        <span class="priority-{{issue.Priority.Id}}">
-                                            &nbsp;&nbsp;&nbsp;({{issue.Priority.Name}})
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
+                                            <span class="priority-{{issue.Priority.Id}}">
+                                                &nbsp;&nbsp;&nbsp;({{issue.Priority.Name}})
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>

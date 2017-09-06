@@ -126,4 +126,8 @@ function Home($scope, HomeService) {
     }
 
     Init();
+
+    $(document).ready(function () {
+        $(".collapsible").collapsible();
+    });
 }

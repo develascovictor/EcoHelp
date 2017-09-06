@@ -18,6 +18,7 @@
 @dark-gray: #7D7D7D;
 @dark-gray2: rgba(0, 0, 0, 0.54);
 @dark-gray3: rgba(0, 0, 0, 0.60);
+@dark-gray4: #676767;
 @orange: #FFA000;
 
 body {
@@ -812,8 +813,6 @@ textarea.materialize-textarea[readonly="readonly"] + label {
 
 table {
     > thead > tr > th {
-        color: #868686;
-
         @media only screen and (max-width: 992px) {
             padding-top: 10px;
             padding-bottom: 10px;
@@ -822,6 +821,7 @@ table {
 
     > thead > tr > th,
     > tbody > tr > td {
+        color: @dark-gray4;
         font-size: 16px;
 
         &.width5 {
@@ -923,4 +923,11 @@ table {
         border-color: #d0d0d0;
         border-width: 1px;
     }
+}
+
+.collapsible {
+    box-shadow: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
 }
