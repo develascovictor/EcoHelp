@@ -11,7 +11,7 @@
         <meta name="author" content="Victor De Velasco" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
         <!--Project Information-->
         <title>
@@ -64,18 +64,40 @@
             <div class="bg-border-radius"></div>
         </nav>
 
-        <ul id="slide-out" class="side-nav">
+        <ul id="slide-out" class="side-nav collapsible" data-collapsible="accordion">
             <li class="head-item">
                 <span class="title">
                     Eco Help
                 </span>
 
-                <img fallback-src="{{FallBackPicture}}" ng-src="~/Resources/images/circle_person.png" alt="" />
-                <div class="name">{{CurrentUser.FullName}}</div>
+                <div class="name">{{CurrentUser.Contact.FullName}}</div>
             </li>
 
-            <li ng-repeat="category in Categories">
-                <a href="#!" class="waves-effect">{{category.Name}}</a>
+            <li>
+                <h5>Categor&iacute;as</h5>
+                <div class="divider"></div>
+            </li>
+
+            <li class="category-item" ng-repeat="category in Categories">
+                <div class="collapsible-header">
+                    <b>{{category.Name}}</b>
+                </div>
+
+                <div class="collapsible-body">
+                    <ul>
+                        <li ng-repeat="issue in category.Issues">
+                            <div class="waves-effect" ng-click="LoadCauses(issue)">
+                                <b>
+                                    {{issue.Name}}
+
+                                    <span class="priority-{{issue.Priority.Id}}">
+                                        &nbsp;&nbsp;&nbsp;({{issue.Priority.Name}})
+                                    </span>
+                                </b>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
 
@@ -96,13 +118,15 @@
                             <div class="collapsible-body">
                                 <ul>
                                     <li ng-repeat="issue in category.Issues">
-                                        <a href="#!" class="waves-effect" ng-click="LoadCauses(issue)">
-                                            {{issue.Name}}
+                                        <div class="waves-effect" ng-click="LoadCauses(issue)">
+                                            <b>
+                                                {{issue.Name}}
 
-                                            <span class="priority-{{issue.Priority.Id}}">
-                                                &nbsp;&nbsp;&nbsp;({{issue.Priority.Name}})
-                                            </span>
-                                        </a>
+                                                <span class="priority-{{issue.Priority.Id}}">
+                                                    &nbsp;&nbsp;&nbsp;({{issue.Priority.Name}})
+                                                </span>
+                                            </b>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>

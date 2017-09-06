@@ -93,11 +93,18 @@ h6 {
 
     li {
         ul {
-            padding-left: 20px;
+            padding-left: 25px;
 
             li {
                 line-height: 20px;
             }
+        }
+
+        div {
+            color: @black2;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 48px;
         }
     }
 }
@@ -130,19 +137,6 @@ h6 {
                     a {
                         span {
                             font-size: 11px;
-
-                            &.priority-3 {
-                                color: @nice-orange;
-                            }
-                            &.priority-2 {
-                                color: @nice-yellow;
-                            }
-                            &.priority-1 {
-                                color: @nice-green;
-                            }
-                            &.priority-0 {
-                                color: @gray;
-                            }
                         }
                     }
                 }
@@ -157,6 +151,13 @@ h6 {
             height: 48px;
             line-height: 48px;
             padding: 0 10px;
+        }
+
+        div {
+            color: @black2;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 48px;
         }
     }
 
@@ -178,32 +179,6 @@ h6 {
 .view {
     margin-top: 60px;
     padding: 0 0 200px 0;
-}
-
-/* Components */
-.badge {
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-}
-
-.badge-name {
-    vertical-align: top;
-    padding: 8px 0px 0 15px;
-    display: inline-block;
-}
-
-.p-badge {
-    background-color: @nice-orange;
-    padding: 4px 8px;
-    color: white;
-    border-radius: 18px;
-    margin: 0 0 0 15px;
-}
-
-.trips {
-    font-size: 12px;
-    margin: 10px 0 20px 0;
 }
 
 [type="radio"]
@@ -286,22 +261,6 @@ input[type=text] {
         &.search {
             border-bottom: 1px solid @gray;
         }
-    }
-
-    &.risk-4 {
-        color: @nice-red;
-    }
-    &.risk-3 {
-        color: @nice-orange;
-    }
-    &.risk-2 {
-        color: @nice-yellow;
-    }
-    &.risk-1 {
-        color: @nice-green;
-    }
-    &.risk-0 {
-        color: @gray;
     }
 }
 
@@ -388,141 +347,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
     box-shadow: 0 1px 0 0 @nice-blue;
 }
 
-.travel-cont {
-    transition: all 250ms ease;
-}
-
-.travel-card {
-    border-left: 5px @nice-blue solid;
-    background-color: @white;
-    border-radius: 4px;
-    box-shadow: 1px 1px 1px 1px @light-gray4;
-    padding: 10px 0 10px 15px;
-    margin: 0 0 20px 0;
-    transition: all 250ms ease;
-    font-size: 12px;
-
-    .risk {
-        color: @nice-blue
-    }
-
-    .risk-bar {
-        width: 100%;
-        height: 4px;
-        background-color: @nice-blue;
-    }
-
-    .card-sect {
-        padding: 0 0 0 20px;
-        margin: 0 0 10px 0;
-
-        /*&.header {
-            margin: 10px 0 10px 0;
-        }*/
-    }
-    
-    p {
-        margin: 0 0 0 0;
-        line-height: 18px;
-    }
-
-    .sub {
-        color: #afafaf;
-    }
-
-    .previous-dest {
-        color: @nice-blue;
-    }
-
-    .dest {
-        margin: 0;
-    }
-
-    .risk-ball {
-        width: 6px;
-        height: 6px;
-        margin: 6px 8px 0 0;
-        vertical-align: top;
-        border-radius: 10px;
-        background-color: @nice-blue;
-        display: inline-block;
-
-        &.risk-4 {
-            background-color: @nice-red;
-        }
-
-        &.risk-3 {
-            background-color: @nice-orange;
-        }
-
-        &.risk-2 {
-            background-color: @nice-yellow;
-        }
-
-        &.risk-1 {
-            background-color: @nice-green;
-        }
-
-        &.risk-0 {
-            background-color: @gray;
-        }
-    }
-
-    &.risk-4 {
-        border-left: 5px @nice-red solid;
-
-        .risk {
-            color: @nice-red;
-        }
-    }
-
-    &.risk-3 {
-        border-left: 5px @nice-orange solid;
-
-        .risk {
-            color: @nice-orange;
-        }
-    }
-
-    &.risk-2 {
-        border-left: 5px @nice-yellow solid;
-
-        .risk {
-            color: @nice-yellow;
-        }
-    }
-
-    &.risk-1 {
-        border-left: 5px @nice-green solid;
-
-        .risk {
-            color: @nice-green;
-        }
-    }
-
-    &.risk-0 {
-        border-left: 5px @gray solid;
-
-        .risk {
-            color: @gray;
-        }
-    }
-
-    .open-form {
-        float: right;
-        padding: 5px;
-    }
-
-    .col {
-        padding: 0;
-    }
-}
-
-.travel-desc {
-    color: #555555;
-    font-weight: 500;
-}
-
 .title-divider {
     margin: 20px 0 15px 0;
 }
@@ -543,14 +367,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
     }
 }
 
-/*.new-cta{
-    padding: 10px 25px 15px 25px;
-}*/
-
-.trip-details {
-    padding: 10px;
-}
-
 .row {
     .col {
         padding: 0 5px;
@@ -558,105 +374,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
         &.view {
             padding: 0 2px 0 2px;
         }
-
-        &.trip {
-            border-top: 1px #eee solid;
-            padding: 10px 0 15px 0;
-            margin: 0;
-
-            .trip-departure {
-                color: #484848;
-            }
-
-            .trip-destination {
-                font-size: 16px;
-            }
-
-            .trip-dates {
-                color: #A1A1A1;
-                font-size: 12px;
-            }
-
-            .risk-label {
-                color: #A1A1A1;
-            }
-
-            .trip-contact {
-                margin: 10px 0 0 0;
-
-                span {
-                    color: @nice-blue;
-                }
-            }
-
-            .trip-accommodation span {
-                color: @nice-blue;
-            }
-
-            .risk.risk-4 {
-                color: @nice-red;
-            }
-
-            .risk.risk-3 {
-                color: @nice-orange;
-            }
-
-            .risk.risk-2 {
-                color: @nice-yellow;
-            }
-
-            .risk.risk-1 {
-                color: @nice-green;
-            }
-
-            .risk.risk-0 {
-                color: @gray;
-            }
-        }
-
-        .security-arrangement-item {
-            padding: 15px 0 15px 5px;
-            border-top: 1px solid @light-gray3
-        }
     }
 
     &.user {
         margin: 0;
         padding: 10px 0 15px 0;
-    }
-}
-
-.col.user {
-    margin: 0;
-    padding: 0;
-
-    .badge-name {
-        margin: 0;
-        padding: 0;
-    }
-
-    img {
-        margin: 3px 0 0 0;
-    }
-
-    .comment {
-        color: #A1A1A1;
-        font-size: 12px;
-    }
-
-    .subh {
-        font-size: 12px;
-
-        a {
-            color: @nice-blue;
-        }
-    }
-}
-
-.trip {
-    i {
-        display: inline-block;
-        font-size: 14px;
     }
 }
 
@@ -740,12 +462,10 @@ table.highlight > tbody > tr {
     }
 }
 
-/* Approval Adjustments */
 .ico-col {
     max-width: 60px;
 }
 
-/* Comment Section  */
 .comment {
     padding: 5px 0 10px 15px !important;
     width: 100%;
@@ -770,18 +490,6 @@ table.highlight > tbody > tr {
     }
 }
 
-.approval-item {
-    .item-label {
-        color: @dark-gray;
-        font-size: 12px;
-    }
-
-    .approver-name {
-        font-size: 13px;
-    }
-}
-
-/* Security Arrangements */
 input:not([type]):disabled + label,
 input:not([type])[readonly="readonly"] + label,
 input[type=text]:disabled + label,
@@ -881,21 +589,6 @@ table {
         &.width95 {
             width: 95%;
         }
-        &.risk-4 {
-            color: @nice-red;
-        }
-        &.risk-3 {
-            color: @nice-orange;
-        }
-        &.risk-2 {
-            color: @nice-yellow;
-        }
-        &.risk-1 {
-            color: @nice-green;
-        }
-        &.risk-0 {
-            color: @gray;
-        }
     }
 }
 
@@ -907,10 +600,6 @@ table {
 
 .marginless {
     margin: 0;
-}
-
-.caterpillar-yellow {
-    color: @nice-yellow;
 }
 
 .main-screen {
@@ -930,4 +619,20 @@ table {
     border-top: none;
     border-right: none;
     border-left: none;
+}
+
+
+span {
+    &.priority-3 {
+        color: @nice-orange;
+    }
+    &.priority-2 {
+        color: @nice-yellow;
+    }
+    &.priority-1 {
+        color: @nice-green;
+    }
+    &.priority-0 {
+        color: @gray;
+    }
 }
