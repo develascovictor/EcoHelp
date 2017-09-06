@@ -43,9 +43,8 @@ h6 {
 .side-nav .name {
   color: white;
   font-size: 12px;
-  display: inline-block;
   vertical-align: middle;
-  margin: 0 0 0 8px;
+  padding: 0 0 0 17px;
 }
 .side-nav .less-height {
   height: 20px;
@@ -55,7 +54,6 @@ h6 {
 }
 .side-nav .head-item {
   background-color: #222;
-  height: 110px;
 }
 .side-nav li ul {
   padding-left: 25px;
@@ -504,4 +502,9 @@ span.priority-1 {
 }
 span.priority-0 {
   color: #9E9E9E;
+}
+.divider.contact {
+  border: solid;
+  border-width: 1px;
+  border-color: darkorange;
 }
