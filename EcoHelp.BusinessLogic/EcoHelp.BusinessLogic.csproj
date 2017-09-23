@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\ContactContext.cs" />
+    <Compile Include="Contexts\CurrentUserContext.cs" />
     <Compile Include="Contexts\UserContext.cs" />
     <Compile Include="Contexts\CauseContext.cs" />
     <Compile Include="Contexts\CategoryContext.cs" />

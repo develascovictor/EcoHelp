@@ -93,7 +93,6 @@ function Home($scope, HomeService) {
 
     function GetCausesByIssueId(issue) {
         if (issue !== undefined && issue !== null) {
-
             var promise = HomeService.GetCausesByIssueId(issue.Id);
 
             promise.then

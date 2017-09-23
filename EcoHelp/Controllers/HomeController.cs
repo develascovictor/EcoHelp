@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using EcoHelp.BusinessLogic.Contexts;
 using EcoHelp.BusinessLogic.ViewModels;
+using EcoHelp.Utilities;
 
 namespace EcoHelp.Controllers
 {
@@ -13,7 +14,12 @@ namespace EcoHelp.Controllers
         /// <summary>
         /// Current user
         /// </summary>
-        private readonly VMUser _currentUser;
+        private readonly CurrentUserContext _currentUserContext;
+
+        /// <summary>
+        /// List used for validations
+        /// </summary>
+        private List<string> _validationsList;
         #endregion
 
         #region Constructors
@@ -22,8 +28,7 @@ namespace EcoHelp.Controllers
         /// </summary>
         public HomeController()
         {
-            UserContext userContext = new UserContext();
-            _currentUser = userContext.GetUserById(8);
+            _currentUserContext = new CurrentUserContext();
         }
         #endregion
 
@@ -61,33 +66,45 @@ namespace EcoHelp.Controllers
         [HttpGet]
         public ActionResult GetPageData()
         {
-            CategoryContext categoryContext = new CategoryContext();
-            ContactContext contactContext = new ContactContext();
+            JsonResponse jsonResponse;
+            _currentUserContext.ValidateCurrentUser(Roles.Station, ref _validationsList);
 
-            VMContact supervisor = null;
-            List<VMContact> supervisors = new List<VMContact>();
-            List<VMContact> supportTechnicians = new List<VMContact>();
-            List<VMContact> developers = contactContext.GetActiveDeveloperContacts();
-            List<VMCategory> categories = categoryContext.GetActiveCategories();
-
-            switch ((Roles)_currentUser.Role.Id)
+            if (!_validationsList.Any())
             {
-                case Roles.Developer:
-                    {
-                        break;
-                    }
+                CategoryContext categoryContext = new CategoryContext();
+                ContactContext contactContext = new ContactContext();
 
-                case Roles.SupportTechnician:
-                case Roles.Supervisor:
-                case Roles.Station:
-                    {
-                        supervisors = contactContext.GetActiveSupervisorContactsByZoneId(_currentUser.AllowedStations[0].ZoneId);
-                        supportTechnicians = contactContext.GetActiveSupportTechnicianContactsByZoneId(_currentUser.AllowedStations[0].ZoneId);
-                        break;
-                    }
+                List<VMContact> supervisors = new List<VMContact>();
+                List<VMContact> supportTechnicians = new List<VMContact>();
+                List<VMContact> developers = contactContext.GetActiveDeveloperContacts();
+                List<VMCategory> categories = categoryContext.GetActiveCategories();
+
+                switch ((Roles)_currentUserContext.CurrentUser.Role.Id)
+                {
+                    case Roles.Developer:
+                        {
+                            break;
+                        }
+
+                    case Roles.SupportTechnician:
+                    case Roles.Supervisor:
+                    case Roles.Station:
+                        {
+                            supervisors = contactContext.GetActiveSupervisorContactsByZoneId(_currentUserContext.CurrentUser.AllowedStations[0].ZoneId);
+                            supportTechnicians = contactContext.GetActiveSupportTechnicianContactsByZoneId(_currentUserContext.CurrentUser.AllowedStations[0].ZoneId);
+                            break;
+                        }
+                }
+
+                jsonResponse = new JsonResponse(true, new { CurrentUser = _currentUserContext.CurrentUser, Supervisors = supervisors, SupportTechnicians = supportTechnicians, Developers = developers, Categories = categories });
+                JsonResult jsonResult = Json(jsonResponse, JsonRequestBehavior.AllowGet);
+                jsonResult.MaxJsonLength = int.MaxValue;
+
+                return jsonResult;
             }
 
-            return Json(new { CurrentUser = _currentUser, Supervisors = supervisors, SupportTechnicians = supportTechnicians, Developers = developers, Categories = categories }, JsonRequestBehavior.AllowGet);
+            jsonResponse = new JsonResponse(false, _validationsList);
+            return Json(jsonResponse, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -97,10 +114,25 @@ namespace EcoHelp.Controllers
         [HttpPost]
         public ActionResult GetCausesByIssueId(int issueId)
         {
-            CauseContext causeContext = new CauseContext();
-            List<VMCause> causes = causeContext.GetActiveCausesByIssueId(issueId);
+            JsonResponse jsonResponse;
+            _currentUserContext.ValidateCurrentUser(Roles.Station, ref _validationsList);
 
-            return Json(causes);
+            if (!_validationsList.Any())
+            {
+                //TODO: Add validation for issue ID
+
+                CauseContext causeContext = new CauseContext();
+                List<VMCause> causes = causeContext.GetActiveCausesByIssueId(issueId);
+
+                jsonResponse = new JsonResponse(true, new { Causes = causes });
+                JsonResult jsonResult = Json(jsonResponse);
+                jsonResult.MaxJsonLength = int.MaxValue;
+
+                return jsonResult;
+            }
+
+            jsonResponse = new JsonResponse(false, _validationsList);
+            return Json(jsonResponse, JsonRequestBehavior.AllowGet);
         }
         #endregion
     }

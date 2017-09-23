@@ -334,6 +334,10 @@
       <Project>{d514b8b8-cebb-4d60-b6fd-9934a593420f}</Project>
       <Name>EcoHelp.BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EcoHelp.Utilities\EcoHelp.Utilities.csproj">
+      <Project>{a429340f-860e-4b5b-970c-5806c9401584}</Project>
+      <Name>EcoHelp.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
